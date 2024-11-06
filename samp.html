@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Samp Ryzen Best Hosting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+        header {
+            background-color: #111;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {
+            color: #f5a623;
+            font-size: 24px;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+        header nav {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        header nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        header nav a:hover {
+            color: #007bff;
+        }
+
+        .custom-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9); /* Gradient effect */
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px; /* More rounded corners */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Drop shadow for depth */
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .custom-btn:hover {
+            background: linear-gradient(45deg, #029d9f, #3498db); /* Reverse gradient on hover */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4); /* Slightly larger shadow */
+            transform: translateY(-3px); /* Lift button on hover */
+        }
+        
+        /* Dropdown Games List */
+        .games {
+            position: relative;
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            background-color: #222;
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        .dropdown a {
+            color: #fff;
+            text-decoration: none;
+            margin: 5px 0;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown a:hover {
+            background-color: #007bff;
+        }
+        .games:hover .dropdown {
+            display: flex;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 50px;
+            text-align: center;
+        }
+        .content h2 {
+            font-size: 36px;
+        }
+        .games-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .game-card {
+            background-color: #2b2b2b;
+            padding: 20px;
+            width: 200px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .game-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Hosting Plans Section */
+        .hosting-plans {
+            background-color: #111;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .hosting-plans h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .hosting-plans p {
+            margin-bottom: 40px;
+        }
+        .os-switch {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .os-switch button {
+            background-color: #2b2b2b;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .os-switch button:hover {
+            background-color: #007bff;
+        }
+        .plan-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .plan-card {
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: left;
+        }
+        .plan-card h3 {
+            color: #f5a623;
+        }
+        .plan-card p {
+            margin: 10px 0;
+        }
+        .plan-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .plan-card ul li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .plan-card button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .plan-card button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Help Section */
+        .help-section {
+            background: linear-gradient(to bottom, #1f1f1f, #1f1f1f, #1f1f1f);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        .help-section h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .help-section p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        
+        .admin-panel button {
+            background-color: #007bff; /* Warna biru utama */
+            color: white;
+            border: none;
+            padding: 5px 10px; /* Ubah padding untuk tombol lebih kecil */
+            width: auto; /* Lebar otomatis sesuai teks */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px; /* Ukuran font lebih kecil */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Efek transisi */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+        }
+
+        .admin-panel button:hover {
+            background-color: #0056b3; /* Warna lebih gelap saat hover */
+            transform: scale(1.05); /* Sedikit perbesar saat hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Tambah bayangan saat hover */
+        }
+        
+        .admin-panel input[type="number"] {
+            width: 80px; /* Ubah lebar input */
+            padding: 5px 10px; /* Tambah padding untuk ruang di dalam */
+            font-size: 14px; /* Ukuran teks */
+            border: 2px solid #007bff; /* Border dengan warna biru */
+            border-radius: 5px; /* Border melengkung */
+            background-color: #333; /* Warna latar belakang input */
+            color: #fff; /* Warna teks */
+            outline: none; /* Hilangkan garis default saat fokus */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Efek transisi untuk interaksi */
+        }
+
+        .admin-panel input[type="number"]:focus {
+            border-color: #0056b3; /* Ubah warna border saat fokus */
+            box-shadow: 0 0 5px rgba(0, 91, 187, 0.5); /* Efek cahaya saat fokus */
+        }
+
+        .admin-panel input[type="number"]::placeholder {
+            color: #aaa; /* Warna placeholder */
+        }
+        
+        .beli-button {
+            display: inline-block; /* Make the link behave like a block */
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline */
+            width: 100%; /* Make it full width */
+            transition: background-color 0.3s;
+        }
+
+        .beli-button:hover {
+            background-color: #0056b3; /* Change color on hover */
+        }
+        
+        /* Uptime Container */
+        .uptime-container {
+            background-color: #2b2b2b;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            width: 80%;
+            text-align: center;
+        }
+        .uptime-status {
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+        }
+        .uptime-bar {
+            height: 100%;
+            background-color: #46a904; /* Default green */
+            transition: width 0.5s ease;
+        }
+        .uptime-text {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Login Container */
+        .login-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .login-box {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: #f5a623;
+        }
+        .login-box input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #007bff;
+        }
+        .login-box .cancel {
+            background-color: #f44336; /* Red */
+            color: white;
+        }
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="homeLink">Samp Ryzen</h1>
+    <nav>
+        <div class="games">
+            <a href="#">Games</a>
+            <div class="dropdown">
+                <a href="#">Minecraft</a>
+                <a href="#">GTA San Andreas</a>
+                <a href="#">Discord Bot</a>
+            </div>
+        </div>
+        <a href="#">Service</a>
+        <a href="#" id="lainnya">Lainnya</a>
+        <a href="#" id="adminLoginLink">Login</a>
+        <a href="#">Discord</a>
+    </nav>
+</header>
+
+<div class="content">
+    <h2>Samp Ryzen Best Hosting And Anti DDoS</h2>
+    <p>Kami menyediakan hosting server game terbaik di Indonesia. Dan sudah memiliki banyak kepercayaan dari customer.</p>
+
+    <div class="games-section" id="gamesSection">
+        <div class="game-card">
+            <img src="https://via.placeholder.com/150x200" alt="Game 1">
+            <p>Minecraft</p>
+        </div>
+        <div class="game-card">
+            <img src="https://via.placeholder.com/150x200" alt="Game 2">
+            <p>GTA San Andreas</p>
+        </div>
+        <div class="game-card">
+            <img src="https://via.placeholder.com/150x200" alt="Game 3">
+            <p>Discord Bot</p>
+        </div>
+    </div>
+
+    <!-- Uptime Status Bar -->
+    <div class="uptime-container" id="uptimeContainer" style="display: none;">
+        <h3>Hosting : Linux</h3>
+        <div class="uptime-status">
+            <div class="uptime-bar" id="uptimeBar"></div>
+            <div class="uptime-text" id="uptimeText">99.95% Uptime</div>
+        </div>
+        <div class="uptime-number" id="uptimeNumber">Uptime: 99.95%</div> <!-- Added numeric display -->
+    </div>
+
+    <div class="hosting-plans">
+        <h2>Hosting Plans</h2>
+        <p>Pilih paket hosting sesuai kebutuhan Anda.</p>
+        <div class="os-switch">
+            <button>Linux</button>
+            <button>Windows</button>
+        </div>
+        <div class="plan-grid">
+            <div class="plan-card">
+                <h3>Basic Plan</h3>
+                <p>10 GB Storage</p>
+                <p>1 GB RAM</p>
+                <p>100 GB Bandwidth</p>
+                <ul>
+                    <li>Free Domain</li>
+                    <li>24/7 Support</li>
+                    <li>Automatic Backups</li>
+                </ul>
+                <div class="price">$10/month</div>
+                <button class="beli-button">Beli Sekarang</button>
+            </div>
+            <div class="plan-card">
+                <h3>Pro Plan</h3>
+                <p>50 GB Storage</p>
+                <p>4 GB RAM</p>
+                <p>500 GB Bandwidth</p>
+                <ul>
+                    <li>Free Domain</li>
+                    <li>24/7 Support</li>
+                    <li>Automatic Backups</li>
+                </ul>
+                <div class="price">$20/month</div>
+                <button class="beli-button">Beli Sekarang</button>
+            </div>
+            <div class="plan-card">
+                <h3>Premium Plan</h3>
+                <p>100 GB Storage</p>
+                <p>8 GB RAM</p>
+                <p>Unlimited Bandwidth</p>
+                <ul>
+                    <li>Free Domain</li>
+                    <li>24/7 Support</li>
+                    <li>Automatic Backups</li>
+                </ul>
+                <div class="price">$30/month</div>
+                <button class="beli-button">Beli Sekarang</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- Admin Login Container -->
+<div class="login-container" id="loginContainer">
+    <div class="login-box">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button class="cancel" id="loginButton">Login</button>
+        <button class="cancel" id="cancelButton">Cancel</button>
+    </div>
+</div>
+    
+<footer>
+    <p>&copy; 2024 Samp Ryzen. All rights reserved.</p>
+</footer>
+
+<script>
+    let isAdmin = false; // Admin state
+    
+    // Show or hide uptime container when "Lainnya" is clicked
+    document.getElementById('lainnya').addEventListener('click', function() {
+        const uptimeContainer = document.getElementById('uptimeContainer');
+        const gamesSection = document.getElementById('gamesSection');
+        const hostingPlans = document.querySelector('.hosting-plans');
+        uptimeContainer.style.display = uptimeContainer.style.display === 'none' || uptimeContainer.style.display === '' ? 'block' : 'none';
+        gamesSection.style.display = 'none'; 
+        hostingPlans.style.display = 'none'; // Hide games section
+
+        // Start automatic uptime update
+        startAutomaticUptimeUpdate();
+    });
+
+    // Reset to initial view when clicking "Samp Ryzen"
+    document.getElementById('homeLink').addEventListener('click', function() {
+        const uptimeContainer = document.getElementById('uptimeContainer');
+        const gamesSection = document.getElementById('gamesSection');
+        const hostingPlans = document.querySelector('.hosting-plans');
+        uptimeContainer.style.display = 'none'; // Hide uptime
+        gamesSection.style.display = 'flex';
+        hostingPlans.style.display = 'block'; // Show games section
+    });
+    
+    // Show login container
+    document.getElementById('adminLoginLink').addEventListener('click', function() {
+        document.getElementById('loginContainer').style.display = 'flex';
+    });
+
+    document.getElementById('cancelButton').addEventListener('click', function () {
+        document.getElementById('loginContainer').style.display = 'none';
+    });
+    
+    // Admin login authentication
+    document.getElementById('loginButton').addEventListener('click', function() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // Simple hardcoded credentials (replace with a proper authentication method)
+        if (username === 'RenggaXD' && password === 'Rengga12') {
+            isAdmin = true;
+            alert('Login successful!');
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('uptimeContainer').style.display = 'block'; // Show uptime bar for admin
+        } else {
+            alert('Invalid credentials!');
+        }
+    });
+
+    // Function to start automatic uptime updates
+    function startAutomaticUptimeUpdate() {
+        setInterval(() => {
+            // Simulate uptime changes
+            let newUptime = (Math.random() * 100).toFixed(2); // Random value between 0 and 100
+            setUptime(newUptime);
+        }, 1000); // Update every 5 seconds
+    }
+
+   function setUptime(percentage) {
+        const uptimeBar = document.getElementById('uptimeBar');
+        const uptimeText = document.getElementById('uptimeText');
+        const uptimeNumber = document.getElementById('uptimeNumber');
+        uptimeBar.style.width = percentage + '%';
+        uptimeText.innerText = percentage + '% Uptime';
+        uptimeNumber.innerText = 'Uptime: ' + percentage + '%'; // Update numeric display
+    }
+</script>
+
+</body>
+</html>
